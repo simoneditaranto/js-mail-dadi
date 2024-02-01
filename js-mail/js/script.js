@@ -25,27 +25,53 @@ buttonElement.addEventListener("click",
 
         const userMailControl = document.getElementById("mail").value;
 
-        // controllo nel mio array se userMail è presente 
-        isMailPresent = false;
-        for(let i = 0; i < mailList.length; i++) {
-            if(mailList[i] == userMailControl) {
-                isMailPresent = true;
+        // controllo se l'indirizzo mail scritto dall'utente è valido
+        // variabile che mi dirà se l'indirizzo è valido o no
+        let isMailValid = false;
+
+        // se la chiocciola è presente, vado avanti
+        if(userMailControl.lastIndexOf("@") != -1) {
+            console.log("1");
+        // se non è presente uno spazio, vado avanti
+            if(userMailControl.lastIndexOf(" ") == -1) {
+            console.log("2");
+                // se l'ultimo punto è alla destra della chiocciola spostato di almeno due posizioni, vado avanti
+                if(userMailControl.lastIndexOf(".") > (userMailControl.lastIndexOf("@") + 1)) {
+                    if((userMailControl.lastIndexOf(".") + 1) !=     userMailControl.length) {
+                        isMailValid = true;
+                    }
+                }
             }
         }
-        userMail = userMailControl;
-        console.log(userMail);
 
-        if(isMailPresent){
-            document.getElementById("result").innerHTML = "Sei registrato!";
-            document.getElementById("result").className = "success";
+        console.log(isMailValid);
+
+        if(isMailValid) {
+            // controllo nel mio array se userMail è presente 
+            isMailPresent = false;
+            for(let i = 0; i < mailList.length; i++) {
+                if(mailList[i] == userMailControl) {
+                    isMailPresent = true;
+                }
+            }
+            userMail = userMailControl;
+            console.log(userMail);
+    
+            if(isMailPresent){
+                document.getElementById("result").innerHTML = "Sei registrato!";
+                document.getElementById("result").className = "success";
+            } else {
+                document.getElementById("result").innerHTML = "Mi dispiace ma non sei registrato o la mail inserita non è corretta";
+                document.getElementById("result").className = "error";
+    
+                
+                newElement.innerHTML = "Vuoi registrarti?";
+                document.querySelector("#register").append(newElement);
+            }
         } else {
-            document.getElementById("result").innerHTML = "Mi dispiace ma non sei registrato o la mail inserita non è corretta";
-            document.getElementById("result").className = "error";
-
-            
-            newElement.innerHTML = "Vuoi registrarti?";
-            document.querySelector("#register").append(newElement);
+            document.getElementById("result").innerHTML = "L'indirizzo che hai inserito non è valido, riprova";
         }
+
 
     }
 )
@@ -70,8 +96,10 @@ newElement.addEventListener("click",
         }
 
         document.getElementById("result").innerHTML = "Registrato con successo!";
-        
+
         document.getElementById("result").className = "registered";
+
+
     }
 )
 
