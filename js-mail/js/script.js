@@ -13,10 +13,9 @@ buttonElement.addEventListener("click",
         
         // memorizzo in una variabile la mail che ha inserito l'utente
         const userMail = document.getElementById("mail").value;
-        // console.log(userMail);
+
         // utilizzo una variabile booleana che per controllare se userMail è presente
         let isMailPresent = false; 
-
 
         // controllo nel mio array se userMail è presente 
         for(let i = 0; i < mailList.length; i++) {
@@ -26,9 +25,11 @@ buttonElement.addEventListener("click",
         }
         
         if(isMailPresent){
-            document.getElementById("result").innerHTML = "Complimenti, sei registrato!";
+            document.getElementById("result").innerHTML = "Sei registrato!";
+            document.getElementById("result").className = "success";
         } else {
             document.getElementById("result").innerHTML = "Mi dispiace ma non sei registrato o la mail inserita non è corretta";
+            document.getElementById("result").className = "error";
         }
     }
 )

@@ -5,22 +5,36 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JS Dadi</title>
+        <title>JS Mail</title>
+
+        <!-- style -->
+        <link rel="stylesheet" href="../js-mail/css/style.css">
 
     </head>
 
     <body>
 
-        <h1>Controllo Email</h1>
+        <div class="container">
 
-        <label for="email">Inserisci la tua mail</label>
-        <input type="email" placeholder="Inserisci qui" id="mail">
+            <h1>Controllo Email</h1>
 
-        <button id="check-mail">
-            Controlla
-        </button>
+            <div class="mail-container">
 
-        <div id="result"></div>
+                <label for="email">Inserisci la tua mail</label>
+
+                <div class="input-mail">
+                    <input type="email" placeholder="Inserisci qui" id="mail">
+                    <button id="check-mail" class="button-56" role="button">
+                        Controlla
+                    </button>
+                    
+                </div>
+
+            </div>
+            
+            <div id="result"></div>
+
+        </div>
 
         <!-- js -->
         <script src="../js-mail/js/script.js"></script>
