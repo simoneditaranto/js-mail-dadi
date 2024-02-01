@@ -37,12 +37,20 @@ h1{
     border-radius: 5px;
 }
 
+#result{
+    margin-bottom: 10px;
+}
+
 #result.success{
     color: green;
 }
 
 #result.error {
     color: red;
+}
+
+#result.registered{
+    color: yellowgreen;
 }
 
 
